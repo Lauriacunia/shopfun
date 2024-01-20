@@ -6,6 +6,7 @@ import { initialProducts } from '@utils/products.seed.js';
 import { HeaderComponent } from '@shared/components/header/header.component.js';
 import { CartService } from '@services/cart.service.js';
 import { ProductService } from '@services/product.service.js';
+
 @Component({
   selector: 'app-list',
   standalone: true,

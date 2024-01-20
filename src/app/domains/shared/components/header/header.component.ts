@@ -3,11 +3,12 @@ import { Input } from '@angular/core';
 import { Product } from '../../../../models/product.model.js';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../../services/cart.service.js';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

@@ -3,11 +3,16 @@ import { CounterComponent } from '../../../../domains/shared/components/counter/
 import { CommonModule } from '@angular/common';
 import { WaveAudioComponent } from '../../../../domains/info/components/wave-audio/wave-audio.component.js';
 import WaveSurfer from 'wavesurfer.js';
-
+import { HighligthDirective } from '@shared/directives/highligth.directive.js';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CounterComponent, CommonModule, WaveAudioComponent],
+  imports: [
+    CounterComponent,
+    CommonModule,
+    WaveAudioComponent,
+    HighligthDirective,
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })

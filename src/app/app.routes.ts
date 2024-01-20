@@ -1,9 +1,5 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from '@shared/pages/layout/layout.component.js';
-import { ListComponent } from './domains/products/pages/list/list.component.js';
-import { AboutComponent } from './domains/info/pages/about/about.component.js';
-import { NotFoundComponent } from '@shared/pages/not-found/not-found.component.js';
-import { ProductDetailComponent } from '@products/pages/product-detail/product-detail.component.js';
 
 export const routes: Routes = [
   {
@@ -12,20 +8,26 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ListComponent,
+        loadComponent: () =>
+          import('./domains/products/pages/list/list.component.js'),
       },
       {
         path: 'about',
-        component: AboutComponent,
+        loadComponent: () =>
+          import('./domains/info/pages/about/about.component.js'),
       },
       {
         path: 'products/:id',
-        component: ProductDetailComponent,
+        loadComponent: () =>
+          import(
+            './domains/products/pages/product-detail/product-detail.component.js'
+          ),
       },
     ],
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    loadComponent: () =>
+      import('./domains/shared/pages/not-found/not-found.component.js'),
   },
 ];

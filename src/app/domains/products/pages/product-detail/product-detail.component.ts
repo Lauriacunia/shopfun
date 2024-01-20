@@ -10,7 +10,7 @@ import { CartService } from '@services/cart.service.js';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
-export class ProductDetailComponent {
+export default class ProductDetailComponent {
   /*  Los parametros de la ruta pueden llegar como input 
    si configuramos el withComponentInputBinding()
    en el archivo app.config.ts */

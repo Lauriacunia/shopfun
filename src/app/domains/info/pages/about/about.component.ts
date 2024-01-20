@@ -16,7 +16,7 @@ import { HighligthDirective } from '@shared/directives/highligth.directive.js';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
-export class AboutComponent {
+export default class AboutComponent {
   duration = signal(1000);
   message = signal('Hello');
   audioUrl = 'assets/Y2meta.app - Palta & the mood - Turn it up (128 kbps).mp3';

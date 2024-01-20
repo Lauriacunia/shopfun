@@ -1,4 +1,7 @@
-<div class="bg-white rounded-lg shadow-lg">
+<div
+  class="bg-white rounded-lg shadow-lg"
+  (click)="goToProductDetail(product.id)"
+>
   <img
     [src]="product.images[0]"
     alt="Product Image"

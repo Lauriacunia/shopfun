@@ -2,7 +2,6 @@ import { Component, inject, signal } from '@angular/core';
 import { ProductComponent } from '@products/components/product/product.component.js';
 import { CommonModule } from '@angular/common';
 import { Product } from '@models/product.model.js';
-import { initialProducts } from '@utils/products.seed.js';
 import { HeaderComponent } from '@shared/components/header/header.component.js';
 import { CartService } from '@services/cart.service.js';
 import { ProductService } from '@services/product.service.js';
@@ -15,10 +14,9 @@ import { ProductService } from '@services/product.service.js';
   styleUrl: './list.component.css',
 })
 export class ListComponent {
-  img = 'https://picsum.photos/640/640?' + Math.random();
-  products = signal<Product[]>(initialProducts);
   private cartService = inject(CartService);
   private productsService = inject(ProductService);
+  products = signal<Product[]>([]);
 
   ngOnInit() {
     this.productsService.getProducts().subscribe({

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http/index.js';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Category } from '@models/category.model.js';
 
@@ -7,8 +7,6 @@ import { Category } from '@models/category.model.js';
 })
 export class CategoryService {
   private http = inject(HttpClient);
-
-  constructor() {}
 
   getAll() {
     return this.http.get<Category[]>(

@@ -5,7 +5,8 @@ import { Product } from '@models/product.model.js';
 import { HeaderComponent } from '@shared/components/header/header.component.js';
 import { CartService } from '@services/cart.service.js';
 import { ProductService } from '@services/product.service.js';
-
+import { CategoryService } from '@services/category.service.js';
+import { Category } from '@models/category.model.js';
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -16,12 +17,30 @@ import { ProductService } from '@services/product.service.js';
 export class ListComponent {
   private cartService = inject(CartService);
   private productsService = inject(ProductService);
+  private categoryService = inject(CategoryService);
   products = signal<Product[]>([]);
+  categories = signal<Category[]>([]);
 
   ngOnInit() {
+    this.getProducts();
+    this.getCategories();
+  }
+
+  getProducts() {
     this.productsService.getProducts().subscribe({
       next: (products) => {
         this.products.set(products);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  getCategories() {
+    this.categoryService.getAll().subscribe({
+      next: (categories) => {
+        this.categories.set(categories);
       },
       error: (error) => {
         console.log(error);

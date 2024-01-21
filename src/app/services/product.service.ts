@@ -9,10 +9,13 @@ export class ProductService {
 
   constructor() {}
 
-  getProducts(category_id?: string) {
+  getProducts(category_id?: string, search?: string) {
     const url = new URL('https://api.escuelajs.co/api/v1/products');
     if (category_id) {
       url.searchParams.set('categoryId', category_id);
+    }
+    if (search) {
+      url.searchParams.set('title', search);
     }
     return this.http.get<Product[]>(url.toString());
   }

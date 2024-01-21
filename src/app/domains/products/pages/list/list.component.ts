@@ -15,10 +15,17 @@ import { ProductService } from '@services/product.service.js';
 import { CategoryService } from '@services/category.service.js';
 import { Category } from '@models/category.model.js';
 import { RouterLink } from '@angular/router';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent, HeaderComponent, RouterLink],
+  imports: [
+    CommonModule,
+    ProductComponent,
+    HeaderComponent,
+    RouterLink,
+    ReactiveFormsModule,
+  ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
@@ -29,9 +36,13 @@ export default class ListComponent {
   private categoryService = inject(CategoryService);
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
+  search = new FormControl('');
 
   ngOnInit() {
     this.getCategories();
+    this.search.valueChanges.subscribe((value) => {
+      this.getProducts();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -39,15 +50,17 @@ export default class ListComponent {
   }
 
   getProducts() {
-    this.productsService.getProducts(this.category_id).subscribe({
-      next: (products) => {
-        console.log(products);
-        this.products.set(products);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    this.productsService
+      .getProducts(this.category_id, this.search.value ?? undefined)
+      .subscribe({
+        next: (products) => {
+          console.log(products);
+          this.products.set(products);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
   }
 
   getCategories() {

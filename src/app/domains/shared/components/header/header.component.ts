@@ -17,6 +17,8 @@ export class HeaderComponent {
   cart = this.cartService.cart;
   total = this.cartService.total;
   hideSideMenu = signal(true);
+  logo =
+    'https://github.com/Lauriacunia/shopfun/assets/63796774/464f2ea6-168c-4276-8eea-88362bb60381';
 
   toggleSideMenu() {
     this.hideSideMenu.update((prev) => !prev);

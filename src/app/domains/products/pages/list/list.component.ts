@@ -16,6 +16,7 @@ import { CategoryService } from '@services/category.service.js';
 import { Category } from '@models/category.model.js';
 import { RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { BannerComponent } from '@shared/components/banner/banner.component.js';
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -25,6 +26,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     RouterLink,
     ReactiveFormsModule,
+    BannerComponent,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
@@ -34,6 +36,8 @@ export default class ListComponent {
   private cartService = inject(CartService);
   private productsService = inject(ProductService);
   private categoryService = inject(CategoryService);
+  bannerImg =
+    'https://github.com/Lauriacunia/shopfun/assets/63796774/839459f9-72b1-49f5-9623-ec1ec21c0be2';
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   search = new FormControl('');

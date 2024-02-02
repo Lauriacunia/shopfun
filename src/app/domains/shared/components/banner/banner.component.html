@@ -1,3 +1,17 @@
-<div class="cursor-pointer">
-  <img [src]="image" alt="" class="w-full" />
+<div
+  class="cursor-pointer rounded-lg relative bg-cover bg-center h-64"
+  [style.background-image]="'url(' + imageUrl + ')'"
+>
+  <div class="absolute flex items-center inset-y-0 right-40 w-1/3">
+    <div
+      class="flex flex-col p-4 bg-white text-left rounded-lg shadow-md w-full"
+    >
+      <p class="text-zinc-800 text-sm font-bold mb-1">
+        Beacuse confort is the key
+      </p>
+      <h1 class="text-zinc-800 text-3xl font-bold">Living Room</h1>
+      <h1 class="text-zinc-800 text-3xl font-bold">Looks for less</h1>
+      <app-primary-button class="mt-7" [text]="buttonText"></app-primary-button>
+    </div>
+  </div>
 </div>

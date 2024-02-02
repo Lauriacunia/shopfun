@@ -1,11 +1,9 @@
-<div
-  class="bg-white rounded-lg shadow-lg h-[500px] cursor-pointer"
-  (click)="goToProductDetail(product.id)"
->
+<div class="bg-white rounded-lg shadow-lg h-[500px]">
   <img
     [src]="product.images[0]"
     alt="Product Image"
-    class="w-full h-72 object-cover rounded-t-lg"
+    class="w-full h-72 object-cover rounded-t-lg cursor-pointer"
+    (click)="goToProductDetail(product.id)"
   />
   <div class="p-4">
     <h2 class="text-lg font-semibold line-clamp-2">
@@ -13,12 +11,10 @@
     </h2>
     <div class="mt-4 flex items-center justify-between">
       <span class="text-lg font-semibold">${{ product.price }}</span>
-      <button
-        class="px-4 py-2 bg-blue-500 text-white rounded-md"
+      <app-primary-button
+        [text]="'Add to Cart'"
         (click)="addToCartHandler(product.id)"
-      >
-        Add to Cart
-      </button>
+      ></app-primary-button>
     </div>
   </div>
 </div>

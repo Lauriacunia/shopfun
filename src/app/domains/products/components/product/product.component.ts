@@ -3,11 +3,12 @@ import { Product } from '../../../../models/product.model.js';
 import { ReversePipe } from '@shared/pipes/reverse.pipe.js';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { PrimaryButtonComponent } from '@shared/buttons/primary-button/primary-button.component.js';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, ReversePipe],
+  imports: [CommonModule, ReversePipe, PrimaryButtonComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })

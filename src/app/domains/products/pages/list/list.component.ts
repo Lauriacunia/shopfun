@@ -36,8 +36,8 @@ export default class ListComponent {
   private cartService = inject(CartService);
   private productsService = inject(ProductService);
   private categoryService = inject(CategoryService);
-  bannerImg =
-    'https://github.com/Lauriacunia/shopfun/assets/63796774/839459f9-72b1-49f5-9623-ec1ec21c0be2';
+  imageUrl =
+    'https://github.com/Lauriacunia/shopfun/assets/63796774/bbd92959-f1aa-46ed-8d65-68762b3c1a19';
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   search = new FormControl('');
